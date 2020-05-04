@@ -1,0 +1,46 @@
+name: pre-merge-checks
+
+on:
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+
+  per-merge-checks:
+    env:
+      server-dir: server
+      CI: true # stops test running in watch mode
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.16.1]
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # set up Node.js runner
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: meta info
+        run: pwd && ls -la
+
+      # server actions
+      - name: sever lint
+        working-directory: ./server
+        run: |
+          npm i
+          npm run lint:fix
+
+      # app actions
+      - name: app checks
+        working-directory: ./app
+        run: |
+          npm i
+          npm run format:fix
+          npm run test:coverage
