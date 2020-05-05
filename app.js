@@ -22,7 +22,7 @@ const log = require('log')
     // Cookies and session. CMS user details are stored in JWT token
     app.use(require('cookie-parser')(process.env.SALT))
 
-    app.use('/api', require(`api/router`))
+    app.use('/api', require(`./api/router`))
     // Start our node server
     app.listen(app.get('port'), () => log('log', `Server started on http://localhost:${app.get('port')} press Ctrl-C to terminate.`))
     // we should never need this but helpful if there is a rouge unhandled rejection

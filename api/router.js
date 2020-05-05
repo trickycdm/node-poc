@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const uuidv4 = require('uuid/v4')
 const log = require('log')
-module.exports = router
 
 router.use('/v1', require('./v1/router'))
 
@@ -20,3 +19,5 @@ router.use((err, req, res, next) => {
     supportId
   })
 })
+
+module.exports = router
