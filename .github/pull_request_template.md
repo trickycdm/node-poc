@@ -11,7 +11,6 @@
 1. [ ] Tested locally
 2. [ ] Unit tests pass
 3. [ ] UI tests pass
-4. [ ] (For Defect fixes) : Screenshot of defect fix attached
 
 ## Screenshots
 
