@@ -29,18 +29,3 @@ jobs:
 
       - name: meta info
         run: pwd && ls -la
-
-      # server actions
-      - name: sever lint
-        working-directory: ./server
-        run: |
-          npm i
-          npm run lint:fix
-
-      # app actions
-      - name: app checks
-        working-directory: ./app
-        run: |
-          npm i
-          npm run format:fix
-          npm run test:coverage
