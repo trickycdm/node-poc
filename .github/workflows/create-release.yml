@@ -54,7 +54,7 @@ jobs:
           draft: false
           prerelease: false
 
-      # https://github.community/t5/GitHub-Actions/Best-way-to-automate-versioning-publishing-to-GitHub-Package/td-p/31211
+      # https://github.community/t5/GitHub-Actions/Best-way-to-automate-versioning-publishing-to-GitHub-Package/td-p/31211 ...
       - name: Push version change
         run: |
           git config user.email "trickycdm@users.noreply.github.com"
