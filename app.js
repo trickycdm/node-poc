@@ -13,7 +13,7 @@ const log = require('log')
     // express init
     const express = require('express')
     const app = express()
-    app.set('port', process.env.NODE_PORT || 3000)
+    app.set('port', process.env.PORT || 8080)
 
     const bodyParser = require('body-parser')
     app.use(bodyParser.urlencoded({ extended: false }))
