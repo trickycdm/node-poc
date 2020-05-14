@@ -67,7 +67,7 @@ jobs:
         run: echo "todo ." #https://github.com/actions/upload-artifact
 
       - name: Generate Deployment Artifact
-        run: zip -r -X node-poc.${{env.PACKAGE_VERSION}}.zip api/ libs/ .env .env.example *.js *.json
+        run: zip -r -X deploy.${{env.PACKAGE_VERSION}}.zip api/ libs/ .env .env.example *.js *.json
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v10
@@ -78,4 +78,4 @@ jobs:
           environment_name: NodePoc-env
           version_label: ${{env.PACKAGE_VERSION}}
           region: eu-west-2
-          deployment_package: deploy.zip
+          deployment_package: deploy.${{env.PACKAGE_VERSION}}.zip
